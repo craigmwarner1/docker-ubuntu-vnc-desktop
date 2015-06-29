@@ -20,6 +20,7 @@ ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc_0.9.14-1.1ubuntu1_amd64.
 ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc-data_0.9.14-1.1ubuntu1_all.deb /tmp/
 RUN dpkg -i /tmp/x11vnc*.deb
 
+# Pulls nand2tetris.zip from site, unzips and configures software tools
 ADD http://nand2tetris.org/software/nand2tetris.zip /nand2tetris/
 RUN unzip /nand2tetris/nand2tetris.zip && rm -fr /nand2tetris/nand2tetris.zip
 RUN ln -s /nand2tetris/tools/HardwareSimulator.sh /bin/HardwareSimulator
