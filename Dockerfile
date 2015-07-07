@@ -8,6 +8,7 @@ RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
         openssh-server pwgen sudo vim-tiny \
         net-tools \
+<<<<<<< HEAD
         xfce4 x11vnc xvfb default-jre \
         gtk2-engines-murrine ttf-ubuntu-font-family \         
         nginx python-pip python-dev build-essential \
@@ -22,10 +23,26 @@ RUN unzip /nand2tetris/nand2tetris.zip && rm -fr /nand2tetris/nand2tetris.zip
 RUN ln -s /nand2tetris/tools/HardwareSimulator.sh /bin/HardwareSimulator
 RUN ln -s /nand2tetris/tools/CPUEmulator.sh /bin/CPUEmulator
 RUN chmod +x /bin/HardwareSimulator && chmod +x /bin/CPUEmulator
+=======
+        lxde x11vnc xvfb \
+        gtk2-engines-murrine ttf-ubuntu-font-family \
+        nginx \
+        python-pip python-dev build-essential unzip \
+    && apt-get autoclean \
+    && apt-get autoremove \
+    && rm -rf /var/lib/apt/lists/*
+>>>>>>> 178bcac9e67652e841ccef3e32672055c8be5108
 
 ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc_0.9.14-1.1ubuntu1_amd64.deb /tmp/
 ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc-data_0.9.14-1.1ubuntu1_all.deb /tmp/
 RUN dpkg -i /tmp/x11vnc*.deb
+
+# Pulls nand2tetris.zip from site, unzips and configures software tools
+ADD http://nand2tetris.org/software/nand2tetris.zip /nand2tetris/
+RUN unzip /nand2tetris/nand2tetris.zip && rm -fr /nand2tetris/nand2tetris.zip
+RUN ln -s /nand2tetris/tools/HardwareSimulator.sh /bin/HardwareSimulator
+RUN ln -s /nand2tetris/tools/CPUEmulator.sh /bin/CPUEmulator
+RUN chmod +x /bin/HardwareSimulator && chmod +x /bin/CPUEmulator
 
 ADD web /web/
 RUN pip install -r /web/requirements.txt
