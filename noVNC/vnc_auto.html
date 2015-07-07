@@ -64,7 +64,7 @@
                             </div></td>
                 </tr></table>
             </div>
-            <canvas id="noVNC_canvas" width="640px" height="20px">
+            <canvas id="noVNC_canvas" width=inherit height=inherit>
                 Canvas not supported.
             </canvas>
         </div>
@@ -88,7 +88,7 @@
                 var innerW = window.innerWidth;
                 var innerH = window.innerHeight;
                 var controlbarH = $D('noVNC_status_bar').offsetHeight;
-                var padding = 5;
+                var padding = 0;
                 if (innerW !== undefined && innerH !== undefined)
                     rfb.setDesktopSize(innerW, innerH - controlbarH - padding);
             }
