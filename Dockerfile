@@ -18,7 +18,7 @@ RUN apt-get update
 RUN apt-get install -y google-drive-ocamlfuse
 
 ADD http://nand2tetris.org/software/nand2tetris.zip /nand2tetris/ 
-RUN unzip /nand2tetris/nand2tetris.zip && rm -fr /nand2tetris/nand2tetris.zip
+RUN unzip -o /nand2tetris/nand2tetris.zip && rm -fr /nand2tetris/nand2tetris.zip
 RUN ln -s /nand2tetris/tools/HardwareSimulator.sh /bin/HardwareSimulator
 RUN ln -s /nand2tetris/tools/CPUEmulator.sh /bin/CPUEmulator
 RUN chmod +x /bin/HardwareSimulator && chmod +x /bin/CPUEmulator
