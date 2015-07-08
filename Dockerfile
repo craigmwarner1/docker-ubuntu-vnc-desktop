@@ -17,12 +17,6 @@ RUN apt-add-repository ppa:alessandro-strada/ppa
 RUN apt-get update
 RUN apt-get install -y google-drive-ocamlfuse
 
-ADD http://nand2tetris.org/software/nand2tetris.zip /nand2tetris/ 
-RUN unzip -o /nand2tetris/nand2tetris.zip && rm -fr /nand2tetris/nand2tetris.zip
-RUN ln -s /nand2tetris/tools/HardwareSimulator.sh /bin/HardwareSimulator
-RUN ln -s /nand2tetris/tools/CPUEmulator.sh /bin/CPUEmulator
-RUN chmod +x /bin/HardwareSimulator && chmod +x /bin/CPUEmulator
-
 ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc_0.9.14-1.1ubuntu1_amd64.deb /tmp/
 ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc-data_0.9.14-1.1ubuntu1_all.deb /tmp/
 RUN dpkg -i /tmp/x11vnc*.deb
