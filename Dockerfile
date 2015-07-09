@@ -7,11 +7,7 @@ ENV HOME /root
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
         openssh-server pwgen sudo vim-tiny \
-<<<<<<< HEAD
         net-tools \ 
-=======
-        net-tools \
->>>>>>> d92ce991b9ddbc829c826a989b61b5f591c7c515
         xfce4 x11vnc xvfb default-jre \
         gtk2-engines-murrine ttf-ubuntu-font-family \         
         nginx python-pip python-dev build-essential \
